@@ -7,16 +7,13 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/messages")
-@CrossOrigin(origins = "https://message-generator-frontend-ge65.onrender.com")
+@CrossOrigin(origins = "https://message-generator-qhye.onrender.com")
 public class MessageController {
-
     @PostMapping("/generate")
-    public ResponseEntity<Map<String, String>> generateMessage(@RequestBody Map<String, String> request) {
-        String prompt = request.get("prompt");
+    public ResponseEntity<Map<String, String>> generateMessage(@RequestParam String name) {
         Map<String, String> response = new HashMap<>();
-
-        if (prompt != null && !prompt.trim().isEmpty()) {
-            response.put("message", "Hello " + prompt + ", Diwali greetings! We wish you the best holiday. Namaste!");
+        if (name != null && !name.trim().isEmpty()) {
+            response.put("message", "Hello " + name + ", Diwali greetings! We wish you the best holiday. Namaste!");
         } else {
             response.put("message", "Hello! Please provide a valid name or prompt.");
         }
