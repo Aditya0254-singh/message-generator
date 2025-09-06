@@ -6,19 +6,18 @@ function App() {
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
 
- const generateMessage = async () => {
-  try {
-    const response = await axios.post(
-      "https://message-generator-backend-ge65.onrender.com/api/messages/generate",
-      { prompt: name }
-    );
-    setMessage(response.data.message);
-  } catch (error) {
-    console.error("Error generating message:", error);
-    setMessage("Something went wrong. Please try again.");
-  }
-};
-
+  const generateMessage = async () => {
+    try {
+      const response = await axios.post(
+        "https://message-generator-backend-ge65.onrender.com/api/messages/generate",
+        { prompt: name }
+      );
+      setMessage(response.data.message);
+    } catch (error) {
+      console.error("Error generating message:", error);
+      setMessage("Something went wrong. Please try again.");
+    }
+  };
 
   return (
     <div className="App">
@@ -36,6 +35,7 @@ function App() {
 }
 
 export default App;
+
 
 
 
